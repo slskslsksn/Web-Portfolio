@@ -1,3 +1,3 @@
-# WebLearning
+# Web-Portfolio
 
-- 내가 웹 개발에 관해 공부한 것들 업로드
+- 웹 포트폴리오 정리
