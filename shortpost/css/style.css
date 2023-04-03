@@ -38,6 +38,14 @@
   margin: 0px;
 }
 
+.article-header .info div{
+  display: inline-block;
+}
+
+.article-header .info .date{
+  float: right;
+}
+
 .article-contents {
   border: 1px dashed black;
   margin-top: 10px;
