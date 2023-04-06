@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing Post</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style-input.css">
+</head>
+
+<body>
+  <main id="app">
+    
+    <form action="../index.html" method="get">
+      <article class="article">
+        <div class="article-container">
+          <section class="article-header">
+            <p class="title">
+              <input type="text" name="title" id="title" autofocus>
+            </p>
+            <p class="info">
+              <input type="text" name="input-id" id="input-id" placeholder="id">
+              <input type="password" name="input-pwd" id="input-pwd" placeholder="&#9679;&#9679;&#9679;&#9679;">
+            </p>
+          </section>
+          <section class="article-contents">
+            <textarea name="ta" id="ta" cols="30" rows="10" style="resize:none;"></textarea>
+          </section>
+          <section class="article-buttons">
+            <input type="submit" value="작성">&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" value="취소" onclick="location.href='../index.html'">
+          </section>
+        </div>
+      </article>
+    </form>
+  </main>
+</body>
+</html>
