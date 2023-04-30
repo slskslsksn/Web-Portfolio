@@ -1,0 +1,32 @@
+#input-div * {
+  vertical-align: middle;
+}
+
+#input-num::-webkit-inner-spin-button,
+#input-num::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0px;
+}
+
+.img-btn{
+  display:inline-block;
+  border: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.img-btn img, .btn-submit img{
+  /* filter: brightness(100%); */
+  vertical-align: top;
+  width: 50px;
+  height: 75px;
+}
+
+.img-btn:active {
+  filter: brightness(50%);
+}
+
+.img-result {
+  width: 25px;
+  height: 35px;
+}
