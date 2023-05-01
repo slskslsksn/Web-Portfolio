@@ -7,30 +7,28 @@
   <link rel="icon" href="./img/icon.png" type="image/png">
   <link rel="stylesheet" href="./omg.css" type="text/css">
   <title>Order Matching Game</title>
-  <style>
-    table, th, td {
-      border:1px solid #ccc;
-      border-collapse: collapse;
-    }
-    th, td { padding:10px 20px; }
-    .test {background-color: #eee;}
-  </style>
 </head>
 <body>
   <main id="app">
-    <input type="image" src="./img/start.png" alt="Start Button" value="test" width="250px" class="btn-img", id="btn-start">
-    <div id="input-div" style="display:none;">
-      <input type="number" id="input-num" required>&nbsp;&nbsp;
-      <input type="image" src="./img/go.png" alt="Start Button" value="test" class="btn-img", id="btn-go">
+    <h1 class="title"><span style="color: red;">O</span>rder <span style="color: green;">M</span>atching <span style="color: blue;">G</span>ame</h1>
+    <div class="wrapper-pre">
+      <input type="image" src="./img/start.png" alt="Start Button" class="btn-img", id="btn-start">
+      <div id="input-div">
+        <p style="display: inline-block;">플레이할 카드의 개수를 정하시오<br>최소 5 ~ 10, <span style="color: red; font-weight: bold; font-size:large">미입력시 5</span></p><br>
+        <input type="number" id="input-num" placeholder="5">&nbsp;&nbsp;
+        <input type="image" src="./img/go.png" alt="Go Button" class="btn-img", id="btn-go">
+      </div>
     </div>
     <div id="game" style="display: none;">
       <div class="choice">
         <button type="button" class="btn-submit img-btn"><img src="./img/enter.png" alt="제출"></button>
       </div>
       <div class="result" style="height:500px; overflow:auto; display: inline-block;">
-        <table style="border:1px solid black; margin:0px;" cellpadding="0">
+        <table class="table-result">
           <colgroup>
-            <col class="test">
+            <col class="table-result-no side">
+            <col class="table-result-choice">
+            <col class="side">
           </colgroup>
           <thead>
             <tr>
@@ -44,8 +42,9 @@
         </table>
       </div>
     </div>
-
   </main>
   <script src="./js/omg.js"></script>
+  <script src="./js/settings.js"></script>
+  <script src="./js/data.js"></script>
 </body>
 </html>

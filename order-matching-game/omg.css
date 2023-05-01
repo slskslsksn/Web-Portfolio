@@ -1,18 +1,86 @@
-#input-div * {
-  vertical-align: middle;
+body{
+  background-color: #91D8E4;
 }
 
+#app{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+  width: 360px;
+  height: 500px;
+}
+
+
+/* 타이틀 */
+.title{
+  margin-top:70px;
+  position: relative;
+}
+
+/* 타이틀 이미지 */
+.title::before{
+  content:'';
+  position: absolute;
+  width:100px;
+  height:100px;
+  left: 120px;
+  transform: translateY(-30%);
+  background-image: url("./img/icon.png");
+  opacity: .5;  /* 투명도 */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: -1;
+}
+
+/* 타이틀 OMG 컬러 */
+.title span{font-size: 110%;}
+.title #r{color: red;}
+.title #g{color: green;}
+.title #b{color: blue;}
+
+#input-div * {
+  margin: auto;
+  vertical-align: middle;
+  /* margin-left: 10px; */
+}
+
+.wrapper-pre{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* start 버튼 */
+#btn-start{
+  /* margin-top: 100px; */
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 250px;
+}
+
+/* input-div */
+#input-div{display: none;}
+
+/* input 화살표 제거 */
 #input-num::-webkit-inner-spin-button,
 #input-num::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0px;
 }
 
+#game{margin-top: 30px;}
+
+#game .choice{margin-bottom: 30px;}
+
 .img-btn{
   display:inline-block;
   border: none;
   padding: 0;
   margin-bottom: 10px;
+  margin-right: 3px;
 }
 
 .img-btn img, .btn-submit img{
@@ -24,9 +92,35 @@
 
 .img-btn:active {
   filter: brightness(50%);
+  color: #000;
 }
 
 .img-result {
   width: 25px;
   height: 35px;
 }
+
+
+/* 테이블 세팅 */
+table, th, td {
+  border:1px solid #ccc;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th, td { padding:10px 20px; }
+
+.table-result th{
+  background-color: #82AAE3;
+}
+
+.table-result tbody tr:nth-of-type(odd){
+  background-color: #BFEAF5;
+}
+
+.table-result tbody tr:nth-of-type(even){
+  background-color: #EAFDFC;
+}
+
+.table-result .side{width: 80px;}
+.table-result-choice{width: 180px;}
