@@ -16,6 +16,8 @@ body{
 .title{
   margin-top:70px;
   position: relative;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  color: #fff;
 }
 
 /* 타이틀 이미지 */
@@ -24,8 +26,7 @@ body{
   position: absolute;
   width:100px;
   height:100px;
-  left: 120px;
-  transform: translateY(-30%);
+  transform: translateX(120%) translateY(-30%);
   background-image: url("./img/icon.png");
   opacity: .5;  /* 투명도 */
   background-position: center;
@@ -37,7 +38,7 @@ body{
 /* 타이틀 OMG 컬러 */
 .title span{font-size: 110%;}
 .title #r{color: red;}
-.title #g{color: green;}
+.title #g{color: chartreuse;}
 .title #b{color: blue;}
 
 #input-div * {
