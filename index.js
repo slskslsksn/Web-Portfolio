@@ -14,7 +14,6 @@ function createLi(link, value){
   if(host === GIT_HOST)
     link = IMSI + link;
   const li = `<li><a href=${link}>${value}</a></li>`;
-  console.log(ol.innerHTML);
   ol.innerHTML += li;
 }
 
