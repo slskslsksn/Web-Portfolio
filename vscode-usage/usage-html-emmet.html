@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Emmet for HTML | VSC 사용법</title>
+</head>
+<body>
+  <header>
+    <div id="emmet">
+      <table>
+        <h1>Emmet for HTML</h1>
+        <thead>
+          <tr>
+            <th>Emmet</th>
+            <th>what</th>
+            <th>ex</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>! || html:5</td>
+            <td>Basic HTML structure</td>
+            <td>! or html5</td>
+          </tr>
+          <tr>
+            <td>.{Class} // #{Id}</td>
+            <td>div with class or id</td>
+            <td>.wrapper // #wrapper</td>
+          </tr>
+          <tr>
+            <td>{tag}.{class} // {tag}#{Id}</td>
+            <td>Any tag width class or id</td>
+            <td>p.panel // form#login</td>
+          </tr>
+          <tr>
+            <td>{tag1}>{tag2}</td>
+            <td>Create tag2 as a child of tag1</td>
+            <td>p>span>i</td>
+          </tr>
+          <tr>
+            <td>{tag}*{num}</td>
+            <td>Create tags by num</td>
+            <td>tr>td*3</td>
+          </tr>
+          <tr>
+            <td>{tag}+{tag}</td>
+            <td>Create sibling tag</td>
+            <td>tr>th+td*3</td>
+          </tr>
+          <tr>
+            <td>(emmets)</td>
+            <td>Create a group of tags</td>
+            <td>table>(thead>tr>th*3)+(tbody>tr>td*3)</td>
+          </tr>
+          <tr>
+            <td>{text}</td>
+            <td>Insert text into tags</td>
+            <td>span{Any text you want}</td>
+          </tr>
+          <tr>
+            <td>{item$}</td>
+            <td>Automatically Numbering</td>
+            <td>ul>li{item$}*4</td>
+          </tr>
+          <tr>
+            <td>^</td>
+            <td>Create a tag at higer position by number of ^</td>
+            <td>table>tr>td*3^tr>td*3>span^^tr>td*3>p{item$}^^^div</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </header>
+</body>
+</html>
