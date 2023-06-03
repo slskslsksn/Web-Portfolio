@@ -5,10 +5,10 @@ const todoList = document.querySelector('#todo-list');
 const TODO_KEY = 'todo';
 let todos = [];
 const savedTodo = localStorage.getItem(TODO_KEY);
-if(savedTodo !== null && savedTodo !== '[]'){
+if (savedTodo !== null && savedTodo !== '[]') {
   const parseTodo = JSON.parse(savedTodo);
   console.log(parseTodo);
-  todos = parseTodo
+  todos = parseTodo;
   // for(const todo of parseTodo){
   //   todos.push(todo);
   //   paintTodo(todo);
@@ -22,18 +22,18 @@ todoForm.addEventListener('submit', (event) => {
   const newTodoObj = {
     id: Date.now(),
     text: newTodo,
-  }
+  };
   paintTodo(newTodoObj);
   todos.push(newTodoObj);
   saveTodo();
-  todoInput.value='';
+  todoInput.value = '';
 });
 
-function saveTodo(){
+function saveTodo() {
   localStorage.setItem(TODO_KEY, JSON.stringify(todos));
 }
 
-function paintTodo(newTodo){
+function paintTodo(newTodo) {
   const li = document.createElement('li');
   li.id = newTodo.id;
   const span = document.createElement('span');
@@ -42,7 +42,7 @@ function paintTodo(newTodo){
   button.addEventListener('click', (event) => {
     // todos.splice(todos.indexOf(newTodo),1);
     // console.log(li.id);
-    todos = todos.filter(todo => String(todo.id) !== li.id);
+    todos = todos.filter((todo) => String(todo.id) !== li.id);
     li.remove();
     saveTodo();
     // if(todos.length == 0) localStorage.removeItem(TODO_KEY);
@@ -53,5 +53,9 @@ function paintTodo(newTodo){
   todoList.appendChild(li);
 }
 
-
-
+//FIXME 나중에 옮기든 아니든 고민해볼것
+const xButton = document.querySelector('#todo-main-x');
+const todoMain = document.querySelector('#todo-main');
+xButton.addEventListener('click', () => {
+  todoMain.classList.add('hidden');
+});

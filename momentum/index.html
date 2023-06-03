@@ -5,32 +5,58 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/style.css">
+
+  <script src="https://kit.fontawesome.com/dbbacd71f2.js" crossorigin="anonymous"></script>
+  <script src="js/apikeys.js"></script>
+
   <title>Momentem</title>
 </head>
 <body>
-  <form class="hidden" id="login-form">
-    <input type="text" name="login-id" id="login-id" placeholder="What is your name?" required maxlength="15">
-    <input type="submit" value="Log in">
-  </form>
-  <h2 id="clock">00:00</h2>
-  <h1 id="greeting" class="hidden"></h1>
-  <form id="todo-form">
-    <input type="text" placeholder="Write a To Do and Press" required>
-  </form>
-  <ul id="todo-list"></ul>
-  <div id="quote">
-    <span></span>
-    <span></span>
-  </div>
   <div id="weather">
     <span></span>
     <span></span>
   </div>
+  <form class="hidden" id="login-form">
+    <input type="text" name="login-id" id="login-id" placeholder="What is your name?" required maxlength="15">
+    <input type="submit" value="Log in">
+  </form>
+  <div class="container">
+    <h2 id="clock">00:00</h2>
+    <h1 id="greeting" class="hidden"></h1>
+    <form id="todo-form">
+      <input type="text" placeholder="Write a To Do" required>
+    </form>
+    <div id="todo-main">
+      <div class="todo-line">
+        <input type="checkbox" name="todo-check" id="todo-main-check">
+        <label for="todo-main-check" class="todo-line-label">
+          <span class="todo-check">
+            <i class="fa-regular fa-square"></i>
+            <i class="fa-regular fa-square-check"></i>
+          </span>
+          <span class="todo-comment">test</span>
+        </label>
+        <i class="fa-solid fa-rectangle-xmark" id="todo-main-x"></i>
+      </div>
+    </div>
+  </div>
+  <ul id="todo-list"></ul>
+  <!-- qoute.js 에서 advice.js로 변경 -->
+  <!-- <div id="quote">
+    <span></span>
+    <span></span>
+  </div> -->
+  <div id="advice" class="bottom"><span></span></div>
+  <div id="copyright" class="bottom">
+    <i class="fa-regular fa-copyright"></i>
+    <span>slskslsksn 2023</span>
+  </div>
   <script src="./js/clock.js"></script>
   <script src="./js/greetings.js"></script>
-  <script src="./js/quotes.js"></script>
-  <script src="./js/background.js"></script>
+  <script src="./js/advice.js"></script>
+  <!-- <script src="./js/quotes.js"></script> -->
   <script src="./js/todo.js"></script>
   <script src="./js/weather.js"></script>
+  <script src="./js/background.js"></script>
 </body>
 </html>

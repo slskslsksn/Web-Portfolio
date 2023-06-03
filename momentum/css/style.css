@@ -1,3 +1,144 @@
+body{
+  background-position: center;
+  color: #eee;
+  margin: 0;
+  background: no-repeat fixed center center / cover;
+  /* background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed; */
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #0008;
+  z-index: -1;
+}
+
 .hidden {
-  display: none;;
+  display: none;
+}
+
+/* contents */
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container > * {
+  text-align: center;
+  margin: 0;
+}
+
+#clock {
+  font-size: 5em;
+}
+
+#greeting {
+  margin-top: 10px;
+  font-size: 2em;
+}
+
+/*************/
+/* todo-form */
+/*************/
+#todo-form {
+  margin-top: 30px;
+  box-sizing: border-box;
+}
+#todo-form input[type=text] {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 3px solid #fff;
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  padding-bottom: 10px;
+}
+#todo-form input[type=text]::selection {
+  background-color: #fff;
+  color: black;
+}
+#todo-form input[type=text]::placeholder {
+  color: white;
+}
+#todo-form input[type=text]:focus::placeholder {
+  visibility: hidden;
+}
+
+/*************/
+/* todo-main */
+/*************/
+#todo-main{
+  margin-top: 10px;
+  box-sizing: border-box;
+  font-size: 20px;
+  line-height: 20px;
+  /* border: 1px solid red; */
+  text-align: left;
+}
+.todo-line {
+  /* border: 1px solid blue; */
+  position: relative;
+}
+.todo-line-label {
+  /* border: 1px solid green; */
+  display: inline-block;
+  width: 100%;
+}
+.todo-check {
+  top: 2px;
+  left: 0;
+}
+#todo-main-check {display: none;}
+.fa-square-check{
+  display: none;
+}
+#todo-main-check:checked ~ label .todo-check .fa-square{
+  display: none;
+}
+#todo-main-check:checked ~ label .todo-check .fa-square-check{
+  display: inline;
+}
+.todo-comment {
+  display: inline-block;
+  box-sizing: border-box;
+}
+.fa-rectangle-xmark {
+  position: absolute;
+  font-size: 25px;
+  top: -1px;
+  right: 0;
+}
+
+/**********/
+/* Footer */
+/**********/
+
+/* 하단 기본 세팅 */
+.bottom{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+
+#advice {
+  bottom: 40px;
+}
+#advice span {
+  font-size: 15px;
+}
+
+#copyright {
+  font-size: 10px;
+  bottom: 15px;
 }
