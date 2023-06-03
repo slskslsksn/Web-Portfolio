@@ -94,19 +94,12 @@ body::before {
   display: inline-block;
   width: 100%;
 }
-.todo-check {
-  top: 2px;
-  left: 0;
-}
 #todo-main-check {display: none;}
-.fa-square-check{
-  display: none;
+.todo-check {
+  padding-right: 5px;
 }
-#todo-main-check:checked ~ label .todo-check .fa-square{
+.fa-square-check {
   display: none;
-}
-#todo-main-check:checked ~ label .todo-check .fa-square-check{
-  display: inline;
 }
 .todo-comment {
   display: inline-block;
@@ -118,7 +111,15 @@ body::before {
   top: -1px;
   right: 0;
 }
-
+#todo-main-check:checked ~ label .todo-check .fa-square{
+  display: none;
+}
+#todo-main-check:checked ~ label .todo-check .fa-square-check{
+  display: inline;
+}
+#todo-main-check:checked ~ label .todo-comment {
+  text-decoration: line-through;
+}
 /**********/
 /* Footer */
 /**********/
