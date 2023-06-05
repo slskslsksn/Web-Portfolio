@@ -1,6 +1,8 @@
 const todoForm = document.querySelector('#todo-form');
 const todoInput = document.querySelector('#todo-form input');
 const todoList = document.querySelector('#todo-list');
+const todoRadio = document.querySelector('#todo-radio');
+const trashRadio = document.querySelector('#trash-radio');
 
 const TODO_KEY = 'todo';
 let todos = [];
@@ -47,7 +49,8 @@ function paintTodo(newTodo) {
     saveTodo();
     // if(todos.length == 0) localStorage.removeItem(TODO_KEY);
   });
-  button.innerText = '❌';
+  // button.innerText = '❌';
+  button.innerHTML = '<i class="fa-solid fa-trash"></i>';
   li.appendChild(span);
   li.appendChild(button);
   todoList.appendChild(li);
@@ -58,4 +61,20 @@ const xButton = document.querySelector('#todo-main-x');
 const todoMain = document.querySelector('#todo-main');
 xButton.addEventListener('click', () => {
   todoMain.classList.add('hidden');
+  // todoMain.parentNode.removeChild(todoMain);
+  setTimeout(function () {
+    todoMain.classList.remove('hidden');
+  }, 1000);
 });
+let todoRadioState = 'none';
+function uncheck() {
+  if (this.value === todoRadioState) {
+    todoRadioState = 'none';
+    this.checked = false;
+  } else {
+    todoRadioState = this.value;
+  }
+  console.log(todoRadioState);
+}
+todoRadio.addEventListener('click', uncheck);
+trashRadio.addEventListener('click', uncheck);
