@@ -1,6 +1,11 @@
+::selection {
+  background-color: #fff;
+  color: #aaa;
+}
+
 body{
   background-position: center;
-  color: #eee;
+  color: #ddd;
   margin: 0;
   background: no-repeat fixed center center / cover;
   /* background-repeat: no-repeat;
@@ -8,7 +13,6 @@ body{
   background-position: center center;
   background-attachment: fixed; */
 }
-
 body::before {
   content: '';
   position: absolute;
@@ -21,6 +25,11 @@ body::before {
 }
 
 .hidden {
+  transition: none;
+  visibility: hidden;
+  /* display: none; */
+}
+.none {
   display: none;
 }
 
@@ -35,6 +44,7 @@ body::before {
 .container > * {
   text-align: center;
   margin: 0;
+  color: #fff;
 }
 
 #clock {
@@ -59,16 +69,12 @@ body::before {
   border: none;
   border-bottom: 3px solid #fff;
   text-align: center;
-  color: white;
+  color: #fff;
   font-size: 40px;
   padding-bottom: 10px;
 }
-#todo-form input[type=text]::selection {
-  background-color: #fff;
-  color: black;
-}
 #todo-form input[type=text]::placeholder {
-  color: white;
+  color: #fff;
 }
 #todo-form input[type=text]:focus::placeholder {
   visibility: hidden;
@@ -88,15 +94,22 @@ body::before {
 .todo-line {
   /* border: 1px solid blue; */
   position: relative;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  transition: 0.3s;
+}
+.todo-line:hover {
+  background-color: #ddd8;
 }
 .todo-line-label {
   /* border: 1px solid green; */
   display: inline-block;
   width: 100%;
 }
-#todo-main-check {display: none;}
+.todo-line input {display: none;}
 .todo-check {
-  padding-right: 5px;
+  padding: 0 5px;
 }
 .fa-square-check {
   display: none;
@@ -108,17 +121,98 @@ body::before {
 .fa-rectangle-xmark {
   position: absolute;
   font-size: 25px;
-  top: -1px;
-  right: 0;
+  top: 3px;
+  right: 5px;
 }
-#todo-main-check:checked ~ label .todo-check .fa-square{
+.fa-rectangle-xmark:hover {
+  color: #fff;
+}
+.fa-rectangle-xmark:active {
+  color: #ddd;
+}
+.todo-line input:checked ~ label .todo-check .fa-square{
   display: none;
 }
-#todo-main-check:checked ~ label .todo-check .fa-square-check{
+.todo-line input:checked ~ label .todo-check .fa-square-check{
   display: inline;
 }
-#todo-main-check:checked ~ label .todo-comment {
+.todo-line input:checked ~ label .todo-comment {
   text-decoration: line-through;
+}
+
+/*************/
+/* todo-area */
+/*************/
+.todo-area {}
+.todo-icons {
+  /* border: 1px solid blue; */
+  box-sizing: border-box;
+  /* background-color: #ddd8; */
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+}
+.todo-area input[type=radio] {
+  display: none;
+}
+.todo-icons label {
+  display: inline-block;
+  font-size: 1.5em;
+  /* border: 1px solid red; */
+  transition: 0.3s;
+}
+.todo-icons label:hover {
+  background-color: #ddd3;
+  color: #fff;
+}
+.todo-icons label i {
+  font-size: 25px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 0;
+}
+.todo-icons label i::before{
+  display: inline-block;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+}
+
+.todo-contents {
+  /* border: 1px solid black; */
+  position: relative;
+  width: 30%;
+}
+.todo-contents > * {
+  /* display: none; */
+  position: absolute;
+  top: 0;
+  left: -100%;
+  border-radius: 0 5px 5px 0;
+  background-color: #ddd3;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  /* border: 1px solid green; */
+}
+/* .todos > * { display: hidden;} */
+
+.todo-area input[id=todo-radio]:checked ~ .todo-icons label[for=todo-radio],
+.todo-area input[id=trash-radio]:checked ~ .todo-icons label[for=trash-radio] {
+  background-color: #ddd3;
+  color: #fff;
+}
+.todo-area input[id=todo-radio]:checked ~ .todo-contents .todos,
+.todo-area input[id=trash-radio]:checked ~ .todo-contents .trashs {
+  /* display: block; */
+  opacity: 1;
+  visibility: visible;
+  left: 0;
 }
 /**********/
 /* Footer */
@@ -131,6 +225,15 @@ body::before {
   text-align: center;
 }
 
+#weather {
+  width: fit-content;
+  bottom: 20px;
+  margin-left: 10px;
+
+}
+#weather span:last-child{
+  display: block;
+}
 
 #advice {
   bottom: 40px;
@@ -142,4 +245,23 @@ body::before {
 #copyright {
   font-size: 10px;
   bottom: 15px;
+}
+
+
+/********/
+/* test */
+/********/
+ul{
+  margin: 0;
+  width: 100%;
+  height: 100px;
+  /* border: solid 1px red; */
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+}
+li {
+  border: 1px solid blue;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
