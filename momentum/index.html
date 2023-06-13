@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <script src="https://kit.fontawesome.com/dbbacd71f2.js" crossorigin="anonymous"></script>
   <script src="js/apikeys.js"></script>
   <link rel="stylesheet" href="./css/style.css">
@@ -52,27 +52,42 @@
       </label>
     </div>
     <div class="todo-contents">
-      <div class="todos">
-        <ul id="todo-list">
-          <div class="todo-line">
-            <input type="checkbox" name="todo-area-check" id="112">
+      <div class="todos" id="todo-list">
+        <ul class="ul-test">
+          <li class="todo-line">
+            <input type="checkbox" id="112">
             <label for="112" class="todo-line-label">
-              <span class="todo-check">
-                <i class="fa-regular fa-square"></i>
-                <i class="fa-regular fa-square-check"></i>
-              </span>
-              <span class="todo-comment">test</span>
+              <span class="todo-check"><i class="fa-regular fa-square"></i><i
+                  class="fa-regular fa-square-check"></i></span><span class="todo-comment">test</span>
             </label>
-            <i class="fa-solid fa-rectangle-xmark" id="todo-main-x"></i>
-          </div>
+            <span class="todo-trash-icon">
+              <i class="fa-solid fa-rectangle-xmark"></i>
+            </span>
+          </li>
         </ul>
+        <div class="nocontent none">
+          No Todo
+        </div>
       </div>
       <div class="trashs">
-        trash here
+        <div class="nocontent">
+          No Trash
+        </div>
       </div>
     </div>
   </div>
-
+  <ul class="ul-test">
+    <li class="todo-line">
+      <input type="checkbox" id="112">
+      <label for="112" class="todo-line-label">
+        <div class="todo-check"><i class="fa-regular fa-square"></i><i class="fa-regular fa-square-check"></i></div>
+        <div class="todo-comment">test</div>
+      </label>
+      <div class="todo-trash-icon">
+        <i class="fa-solid fa-rectangle-xmark todo-trash-button"></i>
+      </div>
+    </li>
+  </ul>
   <!-- qoute.js 에서 advice.js로 변경 -->
   <!-- <div id="quote">
     <span></span>

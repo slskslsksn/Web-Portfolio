@@ -2,7 +2,7 @@ const loginForm = document.querySelector('#login-form');
 const loginInput = loginForm.querySelector('#login-id');
 const greeting = document.querySelector('#greeting');
 
-const HIDDEN_CLASSNAME = 'hidden';
+const HIDDEN_CLASSNAME = 'none';
 const USERNAME_KEY = 'username';
 
 loginForm.addEventListener('submit', (event) => {
