@@ -34,6 +34,8 @@ todoForm.addEventListener('submit', (event) => {
   paintTodo(newTodoObj);
   todos.push(newTodoObj);
   saveTodo();
+  todoRadio.checked = true;
+  todoList.scrollTop = todoList.scrollHeight;
   todoInput.value = '';
 });
 
@@ -121,8 +123,6 @@ function paintTodo(newTodo) {
   xButton.classList.add('fa-solid', 'fa-rectangle-xmark');
   xButton.setAttribute('id', 'todo-main-x');
   xButton.addEventListener('click', (event) => {
-    // todos.splice(todos.indexOf(newTodo),1);
-    // console.log(li.id);
     todos = todos.filter((todo) => String(todo.id) !== checkbox.id);
     todoLine.remove();
     saveTodo();
@@ -131,16 +131,6 @@ function paintTodo(newTodo) {
   trashIconDiv.appendChild(xButton);
 }
 
-//FIXME 나중에 옮기든 아니든 고민해볼것
-const xButton = document.querySelector('#todo-main-x');
-const todoMain = document.querySelector('#todo-main');
-xButton.addEventListener('click', () => {
-  todoMain.classList.add('hidden');
-  // todoMain.parentNode.removeChild(todoMain);
-  setTimeout(function () {
-    todoMain.classList.remove('hidden');
-  }, 1000);
-});
 let todoRadioState = 'none';
 function uncheck() {
   if (this.value === todoRadioState) {
