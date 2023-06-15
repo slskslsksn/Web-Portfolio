@@ -80,8 +80,8 @@ function paintTodo(newTodo) {
     checkbox.checked = true;
   }
   checkbox.addEventListener('change', (event) => {
-    let idx = todos.findIndex((todo) => todo.id === newTodo.id);
-    console.log(todos[idx].id);
+    const idx = todos.findIndex((todo) => todo.id === newTodo.id);
+    // console.log(todos[idx].id);
     if (event.target.checked) todos[idx].done = true;
     else todos[idx].done = false;
     saveTodo();
@@ -108,27 +108,77 @@ function paintTodo(newTodo) {
   checkedIcon.classList.add('fa-regular', 'fa-square-check');
   checkIconSpan.appendChild(checkedIcon);
 
-  // span for comment
+  // div for comment container
+  const commentDiv = document.createElement('div');
+  commentDiv.classList.add('todo-comment');
+  label.appendChild(commentDiv);
+
+  // span for todo comment text
   const commentSpan = document.createElement('span');
-  commentSpan.classList.add('todo-comment');
+  commentSpan.classList.add('todo-comment-text');
   commentSpan.textContent = newTodo.text;
-  label.appendChild(commentSpan);
+  commentDiv.appendChild(commentSpan);
 
-  const trashIconDiv = document.createElement('div');
-  trashIconDiv.classList.add('todo-trash-icon');
-  todoLine.appendChild(trashIconDiv);
+  // input for todo edit
+  const editInput = document.createElement('input');
+  editInput.type = 'text';
+  editInput.classList.add('todo-comment-input', 'none');
+  commentDiv.appendChild(editInput);
 
-  // i for x icon
+  editInput.addEventListener('keydown', (event) => {
+    if (event.key == 'Enter') {
+      const editedTodo = editInput.value;
+      const index = todos.findIndex((todo) => todo.id === newTodo.id);
+      todos[index].text = editedTodo;
+      commentSpan.textContent = editedTodo;
+      saveTodo();
+      editOnOff([editInput, commentSpan, editButton, xButton]);
+    }
+  });
+
+  // div for right buttons container
+  const rightBtnsDiv = document.createElement('div');
+  rightBtnsDiv.classList.add('todo-right-buttons');
+  todoLine.appendChild(rightBtnsDiv);
+
+  // i for edit button
+  const editButton = document.createElement('i');
+  editButton.classList.add('fa-solid', 'fa-pen-to-square', 'todo-edit-button');
+  editButton.addEventListener('click', (event) => {
+    // change editInput.value from commentSpan.innerText
+    editInput.value = commentSpan.innerText;
+    setTimeout(() => {
+      editInput.focus();
+    }, 10);
+
+    // change buttons and commentSpan & editInput
+    editOnOff([editInput, commentSpan, editButton, xButton]);
+  });
+  rightBtnsDiv.appendChild(editButton);
+
+  // i for x button
   const xButton = document.createElement('i');
-  xButton.classList.add('fa-solid', 'fa-rectangle-xmark');
-  xButton.setAttribute('id', 'todo-main-x');
-  xButton.addEventListener('click', (event) => {
+  xButton.classList.add('fa-solid', 'fa-rectangle-xmark', 'todo-x-button', 'none');
+  xButton.addEventListener('click', () => {
+    editOnOff([editInput, commentSpan, editButton, xButton]);
+  });
+  rightBtnsDiv.appendChild(xButton);
+  // i for x icon
+  const trashButton = document.createElement('i');
+  trashButton.classList.add('fa-solid', 'fa-trash-can', 'todo-trash-icon');
+  trashButton.addEventListener('click', (event) => {
     todos = todos.filter((todo) => String(todo.id) !== checkbox.id);
     todoLine.remove();
     saveTodo();
     // if(todos.length == 0) localStorage.removeItem(TODO_KEY);
   });
-  trashIconDiv.appendChild(xButton);
+  rightBtnsDiv.appendChild(trashButton);
+}
+
+function editOnOff(elements) {
+  for (const element of elements) {
+    element.classList.toggle('none');
+  }
 }
 
 let todoRadioState = 'none';
