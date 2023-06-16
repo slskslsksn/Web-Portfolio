@@ -66,6 +66,7 @@ function saveTodo() {
 // }
 
 function paintTodo(newTodo) {
+  let editOnOffList = [];
   // div.todo-line
   const todoLine = document.createElement('div');
   todoLine.classList.add('todo-line');
@@ -124,7 +125,6 @@ function paintTodo(newTodo) {
   editInput.type = 'text';
   editInput.classList.add('todo-comment-input', 'none');
   commentDiv.appendChild(editInput);
-
   editInput.addEventListener('keydown', (event) => {
     if (event.key == 'Enter') {
       const editedTodo = editInput.value;
@@ -132,9 +132,17 @@ function paintTodo(newTodo) {
       todos[index].text = editedTodo;
       commentSpan.textContent = editedTodo;
       saveTodo();
-      editOnOff([editInput, commentSpan, editButton, xButton]);
+      elementOnOff(editOnOffList);
+    } else if (event.key == 'Escape') {
+      // console.log('esc');
+      elementOnOff(editOnOffList);
     }
   });
+
+  // div for input border
+  const editInputBorder = document.createElement('div');
+  editInputBorder.classList.add('todo-comment-input', 'none');
+  commentDiv.appendChild(editInputBorder);
 
   // div for right buttons container
   const rightBtnsDiv = document.createElement('div');
@@ -152,7 +160,7 @@ function paintTodo(newTodo) {
     }, 10);
 
     // change buttons and commentSpan & editInput
-    editOnOff([editInput, commentSpan, editButton, xButton]);
+    elementOnOff(editOnOffList);
   });
   rightBtnsDiv.appendChild(editButton);
 
@@ -160,22 +168,31 @@ function paintTodo(newTodo) {
   const xButton = document.createElement('i');
   xButton.classList.add('fa-solid', 'fa-rectangle-xmark', 'todo-x-button', 'none');
   xButton.addEventListener('click', () => {
-    editOnOff([editInput, commentSpan, editButton, xButton]);
+    elementOnOff(editOnOffList);
   });
   rightBtnsDiv.appendChild(xButton);
   // i for x icon
   const trashButton = document.createElement('i');
   trashButton.classList.add('fa-solid', 'fa-trash-can', 'todo-trash-icon');
   trashButton.addEventListener('click', (event) => {
+    toTrash(newTodo);
     todos = todos.filter((todo) => String(todo.id) !== checkbox.id);
     todoLine.remove();
     saveTodo();
     // if(todos.length == 0) localStorage.removeItem(TODO_KEY);
+    console.log(todos, trashCan);
   });
   rightBtnsDiv.appendChild(trashButton);
+
+  // adding editOnOffList
+  editOnOffList.push(editInput);
+  editOnOffList.push(editInputBorder);
+  editOnOffList.push(commentSpan);
+  editOnOffList.push(editButton);
+  editOnOffList.push(xButton);
 }
 
-function editOnOff(elements) {
+function elementOnOff(elements) {
   for (const element of elements) {
     element.classList.toggle('none');
   }

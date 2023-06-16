@@ -94,11 +94,13 @@ body::before {
   display: flex;
   text-align: center;
   align-items: center;
+  color: #ddd;
   /* margin-top: 15px; */
   /* padding: 10px 0; */
 }
 .todo-line:hover {
   background-color: #ddd8;
+  color: #fff;
 }
 
 .todo-line input[type=checkbox] {display: none;}
@@ -107,7 +109,8 @@ body::before {
   display: flex;
   padding: 10px;
   flex: 9;
-  cursor: pointer
+  cursor: pointer;
+  box-sizing: border-box;
 }
 .todo-line-label:nth-child(1){
   margin: 0;
@@ -122,9 +125,6 @@ body::before {
   box-sizing: border-box;
 }
 .todo-check {
-  padding: 0;
-  /* border: 1px solid red; */
-  
 }
 .fa-square-check {
   display: none;
@@ -137,11 +137,14 @@ body::before {
   padding: 0 3px;
   box-sizing: border-box;
 }
+.todo-comment-text {
+  font-size: 15px;
+  font-weight: bold;
+}
 .todo-trash-icon {
 }
 .todo-right-buttons > *{
   cursor: pointer;
-  border: 1px solid red;
   margin-right: 10px;
   font-size: 1.2em;
 }
@@ -165,16 +168,6 @@ body::before {
   box-sizing: border-box;
   float: right;
 } */
-.fa-rectangle-xmark {
-  top: 3px;
-  right: 5px;
-}
-.fa-rectangle-xmark:hover {
-  color: #fff;
-}
-.fa-rectangle-xmark:active {
-  color: #ddd;
-}
 .todo-line input:checked ~ label .todo-check .fa-square{
   display: none;
 }
@@ -183,6 +176,25 @@ body::before {
 }
 .todo-line input:checked ~ label .todo-comment {
   text-decoration: line-through;
+}
+
+.todo-comment-input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input.todo-comment-input {
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: #fff;
+
+}
+div.todo-comment-input{
+  height: 2px;
+  background-color: #fff;
+  border-radius: 5px;
 }
 
 /*************/
@@ -231,7 +243,7 @@ body::before {
   height: 300px;
 }
 /******************/
-/* todos & trashs */
+/* todos & trash */
 /******************/
 .todo-contents > * {
   position: absolute;
@@ -272,7 +284,7 @@ body::before {
   color: #fff;
 }
 .todo-area input[id=todo-radio]:checked ~ .todo-contents .todos,
-.todo-area input[id=trash-radio]:checked ~ .todo-contents .trashs {
+.todo-area input[id=trash-radio]:checked ~ .todo-contents .trash {
   opacity: 1;
   visibility: visible;
   left: 0;
