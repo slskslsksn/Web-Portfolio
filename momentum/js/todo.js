@@ -210,3 +210,12 @@ function uncheck() {
 }
 todoRadio.addEventListener('click', uncheck);
 trashRadio.addEventListener('click', uncheck);
+
+window.addEventListener('keydown', (event) => {
+  const tag = document.activeElement.tagName;
+  if (event.key == 'Enter' && tag === 'BODY') {
+    setTimeout(() => {
+      todoInput.focus();
+    }, 10);
+  }
+});

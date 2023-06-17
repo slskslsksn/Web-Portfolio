@@ -18,7 +18,7 @@ function cleanTrashCan() {
   // trashCan에 trashList 넣기
 }
 // FIXME 날짜 비교 참고해서 바꾸기
-function compareDate(date1, date2) {
+function compareDate(date11, date22) {
   const time1 = new Date('2023-06-01T23:59:00Z'); // May 30, 2023 at 23:59 UTC
   const time2 = new Date('2023-06-02T00:01:00Z'); // June 2, 2023 at 00:01 UTC
 
