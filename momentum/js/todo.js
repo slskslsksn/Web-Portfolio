@@ -1,10 +1,12 @@
+import { TODO_KEY, HIDDEN, NONE } from './constants.js';
+import Trash from './trash.js';
+
 const todoForm = document.querySelector('#todo-form');
 const todoInput = document.querySelector('#todo-form input');
 const todoList = document.querySelector('#todo-list');
 const todoRadio = document.querySelector('#todo-radio');
 const trashRadio = document.querySelector('#trash-radio');
 const nocontent = document.querySelectorAll('.nocontent');
-const TODO_KEY = 'todo';
 let todos = [];
 const savedTodo = localStorage.getItem(TODO_KEY);
 if (savedTodo !== null && savedTodo !== '[]') {
@@ -19,8 +21,8 @@ if (savedTodo !== null && savedTodo !== '[]') {
 }
 toggleEmptyString();
 function toggleEmptyString() {
-  if (todos.length == 0) nocontent[0].classList.remove('none');
-  else nocontent[0].classList.add('none');
+  if (todos.length == 0) nocontent[0].classList.remove(NONE);
+  else nocontent[0].classList.add(NONE);
 }
 
 todoForm.addEventListener('submit', (event) => {
@@ -123,7 +125,7 @@ function paintTodo(newTodo) {
   // input for todo edit
   const editInput = document.createElement('input');
   editInput.type = 'text';
-  editInput.classList.add('todo-comment-input', 'none');
+  editInput.classList.add('todo-comment-input', NONE);
   commentDiv.appendChild(editInput);
   editInput.addEventListener('keydown', (event) => {
     if (event.key == 'Enter') {
@@ -134,14 +136,13 @@ function paintTodo(newTodo) {
       saveTodo();
       elementOnOff(editOnOffList);
     } else if (event.key == 'Escape') {
-      // console.log('esc');
       elementOnOff(editOnOffList);
     }
   });
 
   // div for input border
   const editInputBorder = document.createElement('div');
-  editInputBorder.classList.add('todo-comment-input', 'none');
+  editInputBorder.classList.add('todo-comment-input', NONE);
   commentDiv.appendChild(editInputBorder);
 
   // div for right buttons container
@@ -166,7 +167,7 @@ function paintTodo(newTodo) {
 
   // i for x button
   const xButton = document.createElement('i');
-  xButton.classList.add('fa-solid', 'fa-rectangle-xmark', 'todo-x-button', 'none');
+  xButton.classList.add('fa-solid', 'fa-rectangle-xmark', 'todo-x-button', NONE);
   xButton.addEventListener('click', () => {
     elementOnOff(editOnOffList);
   });
@@ -175,12 +176,12 @@ function paintTodo(newTodo) {
   const trashButton = document.createElement('i');
   trashButton.classList.add('fa-solid', 'fa-trash-can', 'todo-trash-icon');
   trashButton.addEventListener('click', (event) => {
-    toTrash(newTodo);
+    Trash.toTrash(newTodo);
     todos = todos.filter((todo) => String(todo.id) !== checkbox.id);
     todoLine.remove();
     saveTodo();
     // if(todos.length == 0) localStorage.removeItem(TODO_KEY);
-    console.log(todos, trashCan);
+    console.log(todos, Trash.trashCan);
   });
   rightBtnsDiv.appendChild(trashButton);
 
@@ -192,16 +193,16 @@ function paintTodo(newTodo) {
   editOnOffList.push(xButton);
 }
 
-function elementOnOff(elements) {
+function elementOnOff(elements = []) {
   for (const element of elements) {
-    element.classList.toggle('none');
+    element.classList.toggle(NONE);
   }
 }
 
-let todoRadioState = 'none';
+let todoRadioState = NONE;
 function uncheck() {
   if (this.value === todoRadioState) {
-    todoRadioState = 'none';
+    todoRadioState = NONE;
     this.checked = false;
   } else {
     todoRadioState = this.value;
