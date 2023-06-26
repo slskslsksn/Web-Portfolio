@@ -47,9 +47,9 @@ const DiaryEditor = () => {
           <option value={5}>5</option>
         </select>
       </div>
-      <din>
+      <div>
         <button onClick={handleSubmit}>일기 저장하기</button>
-      </din>
+      </div>
     </div>
   );
 };
