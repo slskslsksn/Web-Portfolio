@@ -99,7 +99,7 @@ body::before {
   /* padding: 10px 0; */
 }
 .todo-line:hover {
-  background-color: #ddd8;
+  background-color: #ddd5;
   color: #fff;
 }
 
@@ -274,6 +274,8 @@ div.todo-comment-input{
 .todo-contents > *::-webkit-scrollbar-thumb {
   background-color: #ddd;
   border-radius: 10px;
+}.todo-contents > *::-webkit-scrollbar-thumb:hover {
+  background-color: #fff;
 }
 .todo-contents > *::-webkit-scrollbar-track{
   background-color: #bbba;
