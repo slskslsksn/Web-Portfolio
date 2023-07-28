@@ -8,10 +8,6 @@ import New from './pages/New';
 import Edit from './pages/Edit';
 import Diary from './pages/Diary';
 
-// COMPONENTS
-import MyButton from './components/MyButton';
-import MyHeader from './components/MyHeader';
-
 const reducer = (state, action) => {
   let newState = [];
   switch (action.type) {
@@ -82,7 +78,7 @@ function App() {
       type: 'CREATE',
       data: {
         id: dataId.current,
-        date: new Date(date),
+        date: new Date(date).getTime(),
         content,
         emotion,
       },
@@ -113,7 +109,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/new" element={<New />} />
-              <Route path="/edit" element={<Edit />} />
+              <Route path="/edit/:id" element={<Edit />} />
               <Route path="/diary/:id" element={<Diary />} />
             </Routes>
           </div>
