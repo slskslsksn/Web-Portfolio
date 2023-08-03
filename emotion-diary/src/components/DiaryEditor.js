@@ -43,7 +43,7 @@ const getStringDate = (date) => {
   return `${year}-${month}-${day}`;
 };
 
-const DiaryEditor = () => {
+const DiaryEditor = ({isEdit, originData}) => {
   const contentRef = useRef();
 
   const [content, setContent] = useState('');
