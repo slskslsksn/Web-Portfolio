@@ -92,7 +92,7 @@ function App() {
   // EDIT
   const onEdit = (targetId, date, content, emotion) => {
     dispatch({
-      typd: 'EDIT',
+      type: 'EDIT',
       data: {
         id: targetId,
         date: new Date(date).getTime(),
