@@ -15,7 +15,7 @@ const Home = () => {
 
   useEffect(() => {
     const firstDay = new Date(curDate.getFullYear(), curDate.getMonth(), 1).getTime();
-    const lastDay = new Date(curDate.getFullYear(), curDate.getMonth() + 1, 0).getTime();
+    const lastDay = new Date(curDate.getFullYear(), curDate.getMonth() + 1, 0, 23, 59, 59).getTime();
 
     setData(diaryList.filter((it) => firstDay <= it.date && it.date <= lastDay));
   }, [diaryList, curDate]);
