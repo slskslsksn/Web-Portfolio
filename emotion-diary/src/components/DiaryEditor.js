@@ -35,9 +35,9 @@ const DiaryEditor = ({isEdit, originData}) => {
       }else{
         onEdit(originData.id, date, content, emotion);
       }
+      navigate('/',{replace: true});
     }
 
-    navigate('/',{replace: true});
   };
 
   const handleRemove = () => {

@@ -14,6 +14,11 @@ const Home = () => {
   const headText = `${curDate.getFullYear()}년 ${curDate.getMonth() + 1}월`;
 
   useEffect(() => {
+    const title = document.querySelector('title');
+    title.innerText = `감정 일기장`;
+  }, []);
+
+  useEffect(() => {
     const firstDay = new Date(curDate.getFullYear(), curDate.getMonth(), 1).getTime();
     const lastDay = new Date(curDate.getFullYear(), curDate.getMonth() + 1, 0, 23, 59, 59).getTime();
 

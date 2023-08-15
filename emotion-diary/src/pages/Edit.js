@@ -11,6 +11,11 @@ const Edit = () => {
   const diaryList = useContext(DiaryStateContext);
 
   useEffect(() => {
+    const title = document.querySelector('title');
+    title.innerText = `감정 일기장 | ${id}번 일기 수정`
+  }, [])
+
+  useEffect(() => {
     if (diaryList.length >= 1) {
       const targetDiary = diaryList.find((it) => parseInt(it.id) === parseInt(id));
       if (targetDiary) {
