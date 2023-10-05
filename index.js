@@ -11,22 +11,22 @@ const links = [
   ['tt_hour_rule/10000hours.html', '1만 시간의 법칙'],
   ['order-matching-game/omg.html', 'Order Matching Game'],
   ['momentum', '모멘텀 (to-do web app)'],
-  ['https://slskslsksn-emotion-diary.web.app/', '감정 일기장(React)'],
+  ['https://slskslsksn-emotion-diary.web.app/', '감정 일기장(React)', true],
   // ['shortpost/index.html', 'Short Post']
 ];
 
 const host = document.location.host;
 const ol = document.querySelector('#link-list');
 
-function createLi(link, value){
-  if(host === GIT_HOST)
+function createLi(link, value, isExtern){
+  if(host === GIT_HOST && !isExtern)
     link = GIT_ROOT + link;
   const li = `<li><a href=${link} target="_blank">${value}</a></li>`;
   ol.innerHTML += li;
 }
 
 for(const link of links){
-  createLi(link[0], link[1]);
+  createLi(link[0], link[1], link[2]);
 }
 
 
