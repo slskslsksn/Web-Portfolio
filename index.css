@@ -12,6 +12,17 @@ body {
   height: 100vh;
 }
 
+#link-list a {
+  color: black;
+}
+
+#link-list a:visited {
+  color: red;
+}
+
+#link-list a:hover {
+  color: blue;
+}
 
 
 

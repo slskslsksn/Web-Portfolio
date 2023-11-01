@@ -10,6 +10,7 @@ const GIT_ROOT = '/Web-Portfolio/';
 const links = [
   ['tt_hour_rule/10000hours.html', '1만 시간의 법칙'],
   ['order-matching-game/omg.html', 'Order Matching Game'],
+  ['http://slskslsksn.dothome.co.kr/timer', 'Timer', true],
   ['momentum', '모멘텀 (to-do web app)'],
   ['https://slskslsksn-emotion-diary.web.app/', '감정 일기장(React)', true],
   // ['shortpost/index.html', 'Short Post']
@@ -29,7 +30,10 @@ for(const link of links){
   createLi(link[0], link[1], link[2]);
 }
 
+const li = ol.children;
+console.log(ol.children[0].children)
 
+  
 /* footer */
 const footer = document.querySelector('footer');
 // version
