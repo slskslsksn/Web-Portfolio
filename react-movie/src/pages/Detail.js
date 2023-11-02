@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Image from '../components/Image';
+import Loading from '../components/Loading';
 
 const Detail = () => {
   const [loading, setLoading] = useState(true);
@@ -16,9 +18,10 @@ const Detail = () => {
   useEffect(() => {
     getDetail();
   }, []);
-  return <div>{loading ? <h1>Loading...</h1> : 
+  return <div>{loading ? <Loading /> : 
   <div>
-    <img src={detail.large_cover_image} alt="movie_cover" width="300px"/>
+    <Image src={detail.large_cover_image} title={detail.title} width={500}/>
+    {/* <img src={detail.large_cover_image} alt="movie_cover" width="300px"/> */}
     <h1>{detail.title} ({detail.year})</h1>
     <p>{detail.description_full}</p>
   </div>
