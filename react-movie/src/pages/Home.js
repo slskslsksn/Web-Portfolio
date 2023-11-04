@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import Movie from '../components/Movie';
 import Loading from '../components/Loading';
 
+import styles from './Home.module.css';
+import Header from '../components/Header';
+
 function Home() {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -12,24 +15,28 @@ function Home() {
   };
   useEffect(() => {
     getMovies();
+    console.log(movies);
   }, []);
   return (
-    <div>
+    <div className={styles.Home}>
       {loading ? (
         <Loading />
       ) : (
-        <div>
-          {movies.map((movie) => (
-            <Movie
-              key={movie.id}
-              id={movie.id}
-              title={movie.title}
-              genres={movie.genres}
-              coverImg={movie.medium_cover_image}
-              summary={movie.summary}
-            />
-          ))}
-        </div>
+        <>
+          <Header />
+          <div className={styles.movie__list}>
+            {movies.map((movie) => (
+              <Movie
+                key={movie.id}
+                id={movie.id}
+                title={movie.title}
+                genres={movie.genres}
+                coverImg={movie.medium_cover_image}
+                summary={movie.summary}
+              />
+            ))}
+          </div>
+        </>
       )}
     </div>
   );

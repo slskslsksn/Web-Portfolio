@@ -1,0 +1,23 @@
+.Home{
+  width: 100%;
+}
+
+/* .movie__list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+.movie__list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, auto));
+  row-gap: 10px;
+	column-gap: 20px;
+}
+.movie__item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;;
+}
