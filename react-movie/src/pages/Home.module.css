@@ -1,32 +1,9 @@
-.Home{
-  width: 100%;
-}
+/* https://designbase.co.kr/sketch-4/ */
+/* 
+  container: 1200px
+  columns: 12
+  offset: center
+  gutter: 24px
+  column: 78px
+ */
 
-/* .movie__list {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-} */
-.movie__list {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(300px, auto));
-  row-gap: 10px;
-	column-gap: 20px;
-}
-.movie__item {
-  width: 100%;
-  display: flex;
-  flex-direction: row;;
-}
-
-@media screen and (max-width:980px ) {
-  .movie__list{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Image from './Image';
-import a from './Movie.module.css';
+import styles from './Movie.module.css';
 const Movie = ({ id, coverImg, title, summary, genres }) => {
   const onError = (e) => {
     console.log(e);
@@ -9,9 +9,9 @@ const Movie = ({ id, coverImg, title, summary, genres }) => {
     e.target.width = '400';
   };
   return (
-    <div className={a.Movie}>
+    <div className={styles.Movie} id={id}>
       <Image src={coverImg} title={title} width={300} />
-      <div className={a.test}>
+      <div className={styles.test}>
         <h1>
           <Link to={`/detail/${id}`}>{title}</Link>
         </h1>
